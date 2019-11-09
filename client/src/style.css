@@ -1,4 +1,5 @@
 .block {
-  color: red;
-  background: black;
+  display: flex;
+  background: lightcyan;
+  border: 1px solid cyan;
 }
