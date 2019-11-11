@@ -44,6 +44,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./client/src/index.html",
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+        useShortDoctype: true,
+      },
     }),
   ],
   devServer: {
