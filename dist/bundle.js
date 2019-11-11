@@ -90,11 +90,11 @@
 /*!*****************************!*\
   !*** ./client/src/index.js ***!
   \*****************************/
-/*! exports provided: a */
+/*! exports provided: test, a */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return a; });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./client/src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style3_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style3.scss */ \"./client/src/style3.scss\");\n/* harmony import */ var _style3_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style3_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst a = 5;\nconsole.log(a);\n\n//# sourceURL=webpack:///./client/src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"a\", function() { return a; });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./client/src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style3_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style3.scss */ \"./client/src/style3.scss\");\n/* harmony import */ var _style3_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style3_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test */ \"./client/src/test.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"test\", function() { return _test__WEBPACK_IMPORTED_MODULE_2__[\"test\"]; });\n\n\n\n\nvar arr = [\"a\", \"b\"];\nconsole.log(arr.includes(\"a\"));\nvar a = 5;\ntest();\nconsole.log(a);\n\n//# sourceURL=webpack:///./client/src/index.js?");
 
 /***/ }),
 
@@ -117,6 +117,18 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!../../node_modules/postcss-loader/src??ref--5-2!../../node_modules/sass-loader/dist/cjs.js!./style3.scss */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./client/src/style3.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./client/src/style3.scss?");
+
+/***/ }),
+
+/***/ "./client/src/test.js":
+/*!****************************!*\
+  !*** ./client/src/test.js ***!
+  \****************************/
+/*! exports provided: test */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"test\", function() { return test; });\nvar test = function test() {\n  console.log(\"hello world\");\n};\n\n//# sourceURL=webpack:///./client/src/test.js?");
 
 /***/ }),
 
