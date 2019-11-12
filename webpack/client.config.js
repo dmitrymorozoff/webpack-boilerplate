@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const env = require("./env");
 const webpack = require("webpack");
@@ -9,7 +10,7 @@ const devEnv = "development";
 
 const config = {
   mode: env.production ? prodEnv : devEnv,
-  entry: "./client/src/index.js",
+  entry: "./src/client/index.js",
   output: {
     filename: "bundle.js",
     path: path.resolve("./dist"),
@@ -48,7 +49,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./client/src/index.html",
+      template: "./src/client/index.html",
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -64,6 +65,12 @@ const config = {
       __ENV__: env,
       "process.env.NODE_ENV": env.current,
     }),
+    new CopyWebpackPlugin([
+      {
+        from: "src/client/assets",
+        to: "assets",
+      },
+    ]),
   ],
   devServer: {
     port: 8080,
