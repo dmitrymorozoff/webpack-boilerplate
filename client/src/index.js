@@ -8,3 +8,5 @@ console.log(test);
 export const a = 5;
 test();
 console.log(a);
+
+console.log("env:", __ENV__);
