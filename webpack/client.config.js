@@ -10,7 +10,7 @@ const devEnv = "development";
 
 const config = {
   mode: env.production ? prodEnv : devEnv,
-  entry: "./src/client/index.js",
+  entry: "./src/client/index",
   output: {
     filename: "bundle.js",
     path: path.resolve("./dist"),
@@ -19,11 +19,16 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -46,6 +51,9 @@ const config = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -71,6 +79,9 @@ const config = {
         to: "assets",
       },
     ]),
+    new webpack.ProvidePlugin({
+      React: "react",
+    }),
   ],
   devServer: {
     port: 8080,
