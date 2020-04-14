@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const env = require("./env");
 const webpack = require("webpack");
@@ -33,7 +34,11 @@ const config = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          { loader: "style-loader" },
+          {
+            loader: env.production
+              ? MiniCssExtractPlugin.loader
+              : "style-loader",
+          },
           {
             loader: "css-loader",
             options: {
@@ -48,6 +53,17 @@ const config = {
             },
           },
           { loader: "sass-loader" },
+        ],
+      },
+      {
+        test: /.*\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/[name].[hash].[ext]",
+            },
+          },
         ],
       },
     ],
@@ -81,6 +97,9 @@ const config = {
     ]),
     new webpack.ProvidePlugin({
       React: "react",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles.[chunkhash].css",
     }),
   ],
   devServer: {
