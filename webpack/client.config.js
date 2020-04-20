@@ -13,7 +13,7 @@ const config = {
   mode: env.production ? prodEnv : devEnv,
   entry: "./src/client/index",
   output: {
-    filename: "bundle.js",
+    filename: "bundle.[chunkhash].js",
     path: path.resolve("./dist"),
     publicPath: "",
   },
