@@ -1,37 +1,26 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const autoprefixer = require("autoprefixer");
-const env = require("./env");
-const webpack = require("webpack");
+const nodeExternals = require("webpack-node-externals");
 
-const prodEnv = "production";
-const devEnv = "development";
+const merge = require("webpack-merge");
+const baseConfig = require("./base.config");
 
-const config = {
-  mode: env.production ? prodEnv : devEnv,
-  entry: "./src/server/index.tsx",
-  target: "node",
-  output: {
-    filename: "server.js",
-    path: path.resolve("./dist"),
-    publicPath: "",
-    libraryTarget: "commonjs",
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx|tsx|ts)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
+const config = merge(baseConfig, {
+    entry: "./src/server/index.tsx",
+    target: "node",
+    externals: [nodeExternals()],
+    output: {
+        filename: "server.js",
+        path: path.resolve("./dist"),
+        libraryTarget: "commonjs",
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: "null-loader",
+            },
         ],
-      },
-    ],
-  },
-};
+    },
+});
 
 module.exports = config;
